@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulär</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Två tal</h1>
+        <form action= "taemot.php" method="GET">
+        <label for="tal1">Ange första talet</label>
+        <input id="tal1" class="form-control" type="text" name="nummer1">
+        <label for="tal2">Ange andra talet</label>
+        <input id="tal2" class="form-control" type="text" name="nummer2">
+        <label for="email">email</label>
+        <input id="e-post" class="form-control" type="email" name="mail">
+        <label for="tel">telefonummer</label>
+        <input id="tel" class="form-control" type="text" name="tel">
+        <label for="Nyhetsbrev">Vill ha nyhetsbrev</label>
+        <input id="nyheter" class="form-control" type="checkbox" name="ny1">
+        <label for="tel eller email">Telefonummer eller E-post</label>
+        <input id="knapp1" class="form-control" type="radio" name="tel"> telefon
+        <input id="knapp2" class="form-control" type="radio" name="tel"> epost <br>
+        <button type="submit" class="btn btn-warning">Skicka</button>
+        </form>
+    </div>
+</body>
+</html>
