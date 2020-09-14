@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulär med kontaktuppgifter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./exempel-3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Två tal</h1>
+        <form action= "exempel-3.php" method="POST">
+        <label for="text">Namn</label>
+        <input id="namn" class="form-control" type="text" name="namnFornamn">
+        <label for="email">email</label>
+        <input id="tel" class="form-control" type="email" name="email">
+        <label for="telefon">telefonummer</label>
+        <input id="telefonumer" class="form-control" type="text" name="tel">
+        <label for="text">Kontakt</label>
+        <input hidden name="kontaktMeddelande">
+        <input type="radio" name="roll">
+        <label for="radio">Epost</label>
+        <input type="radio" name="roll">
+        <label for="radio">Tel</label>
+       <br>
+        <button type="submit" class="btn btn-warning">Skicka</button>
+        </form>
+    </div>
+</body>
+</html>

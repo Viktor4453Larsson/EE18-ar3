@@ -4,7 +4,8 @@
 
 	
 	// Custom Variables
-
+$my_name = "Viktor";
+$fav_fruit = "pomegranate";
 
 ?>
 
@@ -24,9 +25,18 @@
 			<hr>
 			
 			<h2>Your Example</h2>
-			
 			<div class="sandbox">
-				
+			<?php
+			
+			if ($fav_fruit == "oranges"){
+				echo "Yay you like oranges";
+			}
+			else {
+				"Maybe you like something else";
+			}
+
+		
+			?>
 			</div><!-- end sandbox -->
 			
 			<a href="index.php" class="button">Back to the lecture</a>
