@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lånekalkylator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./exempel-3a.php">
+</head>
+<body>
+    <div class="container">
+        <h1>Två tal</h1>
+        <form action= "exempel-2.php" method="POST">
+            <label for="lån">Lånebeloppet</label>
+            <input type="text"> <br>
+            <label for="ränta">Ränta</label>
+            <input type="text">
+        <input id="knapp1" class="form-control" type="radio" name="lånetid" value="1"> Låneränta ett år
+        <input id="knapp2" class="form-control" type="radio" name="lånetid" value="2"> Låneränta 2 år  
+        <input id="knapp3" class="form-control" type="radio" name="lånetid" value="3"> Låneränta 3 år <br>
+        <button type="submit" class="btn btn-warning">Räkna ut</button>
+        </form>
+    </div>
+</body>
+</html>
