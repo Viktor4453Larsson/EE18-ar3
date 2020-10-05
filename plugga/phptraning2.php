@@ -6,7 +6,9 @@
     <title>Plugga övningar i PHP 2</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<!-- Gör två ruttor för tal ett och tal två inmatning.(klar)  -->
+<body>
+<form action="#" method="POST">
+    <!-- Gör två ruttor för tal ett och tal två inmatning.(klar)  -->
 <input type="text" name="tal1">
 <label for="tal1">Skriv ditt första tal här!</label>
 <p></p>
@@ -30,10 +32,9 @@
 <p></p>
 <input type="radio" name="färg" value="yellow">
 <label for="färg">Gul backgrund</label>
-<body>
     <p></p>
     <button type="submit">Skicka här!!!</button>
-    <form action="#" method="$_POST">
+    
         <?php
         if (isset($_POST["tal1"], $_POST["tal2"], $_POST["färg"])) {
             $number1 = $_POST["tal1"];
@@ -59,7 +60,7 @@ if ($valAvKontakt == 1) {
     echo " <p> Vi kommer skicka på din telefon den info du behöver</p> ";
 } 
 
-    //Byt backgrundsfärg.(inte klar, behövs tränas på mer)    
+    //Byt backgrundsfärg.(klar)    
 if ($backgrund = "style.farg") {
     $backgrund = $_POST["färg"];
 echo "<body style=\"background: $backgrund;\">";
