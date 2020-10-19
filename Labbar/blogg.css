@@ -3,6 +3,9 @@
 body {
     background: rgb(255, 255, 255) url("../bilder/bg.jpg");
     background-size: cover;
+    background: url(./bilder/blogg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .kontainer {
