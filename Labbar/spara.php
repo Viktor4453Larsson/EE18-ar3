@@ -33,11 +33,34 @@
                 <button class="btn btn-primary">Spara inlägg</button>
             </form>
             <?php
-            // Ta emot data från formuläret
+           /*  // Ta emot data från formuläret
             if (isset($_POST["inlagg"])) {
 
                // Skapa en intärn variabel
-               $texten = $_POST["inlagg"];
+               $texten = $_POST["inlagg"]; */
+
+               if (is_writable($filnamn)) {
+                   
+               
+
+               if (!$handtag = fopen($filnamn, ('a'))) {
+                   echo " <p class=\"alert alert-warning\" role=\"alert\">Kan inte öppna filen ($filnamn)</p>";
+                   exit;}
+               }
+               if (fwrite($handtag, $filnamn) == FALSE) {
+                  echo " <p class=\"alert alert-warning\" role=\"alert\">Kan inte skriva till filen</p>";
+                  exit;
+               }
+                echo "<p>Skrev utan problem filen $handtag till $filnamn</p>";
+                fclose($handtag); 
+                 {
+                   echo " <p>Den här filen går inte att skriva till</p>";
+               }
+               // Läs in från formuläret och rensa från hot
+               $texten = filter_input(INPUT_POST, "inlägg", FILTER_SANITIZE_STRING);
+
+               // Om vi får data
+               if ($texten) {
 
                //Förberedd texten för HTML
                $ersattMedBr = str_replace("\n", "<br>", $texten);

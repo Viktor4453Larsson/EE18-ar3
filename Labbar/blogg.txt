@@ -1,4 +1,6 @@
-<p class="alert alert-warning" role="alert">måndag 19 oktober kl 10:38<br>dsfdffxfhfshdgfjhsgfs<br>zdfhoudhufzdufzduf</p>
-<p class="alert alert-warning" role="alert">måndag 19 oktober kl 10:38<br>zdffzdfzdfzdfzdfzd77<br>77777777777777</p>
+<p class="alert alert-warning" role="alert">måndag 19 oktober kl 10:38<br>dsfdffxfhfshdgfjhsgfs
+<br>zdfhoudhufzdufzduf</p>
+<p class="alert alert-warning" role="alert">måndag 19 oktober kl 10:38<br>zdffzdfzdfzdfzdfzd77
+<br>77777777777777</p>
 <p class="alert alert-warning" role="alert">måndag 19 oktober kl 10:38<br>tjoho</p>
 <p class="alert alert-warning" role="alert">måndag 19 oktober kl 10:39<br>ja eller nej?</p>
