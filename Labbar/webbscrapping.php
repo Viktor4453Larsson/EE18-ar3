@@ -16,22 +16,52 @@
         $sidan = file_get_contents("https://astro.elle.se");
 
         // Sök början på texten
-        $start = strpos($sidan, "<div class=\"c-post_content__wrapper\">") ;
+        $start = strpos($sidan, "c-post_content__wrapper") ;
         if ($start !== false) {
             echo "<p>Horoskopet började på position $start</p>";
         } else {
             echo "<p>Hittade inte horoskopets början!</p>";
         }
 
-        // Hitta var horoskopet 
-        $slut = strpos($sidan, "c-post_tag_wrapper", $start);
+        // Hitta var horoskopet slutar
+        $slut = strpos($sidan, "c-widget__area", $start);
         if ($slut !== false) {
-            echo " <p>Horoskopet slutar på position $slut</p>";
+            echo "<p>Horoskopet slutar på position $slut</p>";
         } else {
-            echo " <p> Hittade inte Horoskopet slut! </p>";
+            echo "<p>Hittade inte horoskopets slut!</p>";
         }
+
+        //echo " <p>Startposition börjar ca $start </p>";
+        //echo " <p>Startposition slutar ca $slut </p>";
+
+        // Skriv ut den här delen 
+        $caStartposition = substr($sidan, $start + 26, $slut - $start);
+
+        //echo " <p>$caStartposition</p>";
+
+        // första delen före annonsen
+        /* $start = strpos($caStartposition, "<div class=\"o-indenter\">");
+         $slut = strpos($caStartposition, "</div>", $start );
+         $del1 = substr($caStartposition, $start, $slut - $start );
+         echo "$del1</div>\n"; */
+
+         // Texten för första 
+        /* $start = strpos($caStartposition, "<div class=\"o-indenter\">", $slut);
+         $slut = strpos($caStartposition, "</div>", $start );
+         $del2 = substr($caStartposition, $start, $slut - $start );
+         echo "$del2</div>\n"; */
+
+         // Hämta resterande divboxar
+         for ($i = 0; $i < 24; $i++) {
+             echo "<p>$i</p>";
+
+         // Texten för första 
+         $start = strpos($caStartposition, "<div class=\"o-indenter\">", $slut);
+         $slut = strpos($caStartposition, "</div>", $start );
+         $del2 = substr($caStartposition, $start, $slut - $start );
+         echo "$del2</div>\n";
+         }
         ?>
     </div>
-    
 </body>
 </html>
