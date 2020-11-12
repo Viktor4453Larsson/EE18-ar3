@@ -19,7 +19,7 @@ Skriv ut hela ritningen av det du ska bygga så att det går att bygga då behö
     <div class="kontainer">
     <h1>Läsa av en fil</h1>
     <!-- Klasserna är innan  -->
-    <form class="bg-light"  action="#" method="POST">
+    <form class="bg-light" action="#" method="POST">
     <label>Skriv filens namn här</label>
     <!-- För att kunna hitta vad för fil du skrivit måste du ange namnet på den -->
     <input class="form-control" type="text" name="filnamn">
@@ -51,7 +51,7 @@ foreach ($allaRader as $rad) {
     $delar = explode(",", $rad);
     
     
-    echo "<tr><td>$delar[0]</td><td>$delar[1]</td><td>$delar[3]</td><td>$delar[4]</td></tr>";
+    echo "<tr><td>$delar[0]</td><td>$delar[1]</td><td>$delar[2]</td><td>$delar[3]</td></tr>";
 
     $antalRader++;
 }

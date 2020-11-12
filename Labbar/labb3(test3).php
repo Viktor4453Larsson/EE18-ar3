@@ -10,62 +10,80 @@ Skriv ut hela ritningen av det du ska bygga så att det går att bygga då behö
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Läsa av en tsv fil från Excel</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+    <title>Läs av en tsv fil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="kontainer">
-    <h1>Läsa av en tsv fil</h1>
-        <form class="bg-light" action="#" method="POST">
-            <label>Skriv in vad din fil hetter här</label>
-            <input class="form-control" type="text" name="filnamn">
-            <button type="submit" class="btn btn-primary">Kontrollera din fil med denna knapp<button>
+    <form class="bg-light" action="#" method="POST">
+        <h1>Läs av en tsv fil</h1>
+        <label>Skriv in vad din fil heter här</label>
+        <input  type="text" name="filnamn">
+        <button class="btn btn-primary" type="submit">Kontrollera fil här</button>
         </form>
         <?php
         if (isset($_POST["filnamn"])) {
             $filnamn = $_POST["filnamn"];
-            // Du glömmde is_readable förra gången
+
             if (is_readable($filnamn)) {
-                echo " <p>Filen kunde hitttas</p>";
-            } else {
-                echo " <p>Filen kunde inte hittas</p>";
-            }
-
-            // Glöm inte fil + filnamn här
-        }
-            $allaRader = file($filnamn); 
-
-            $antalRader = 0;
-
-            echo "<table class=\"table table-striped\">";
-            echo "<th> scope=\"col\">Namn</th>";
-            echo "<th> scope=\"col\">Gata</th>";
-            echo "<th> scope=\"col\">Postnr</th>";
-            echo "<th> scope=\"col\">Postort</th>";
-            foreach ($allaRader as $rad) {
-                // Du glömmde $delar förra gången
-              $delar = explode(",", $rad);
-              // $delar och inte $allaRader
-                echo "<tr><td>$delar[0]</td><td>$delar[1]</td><td>$delar[2]</td><td>$delar[3]</td></tr>";
-
-                // Glöm inte denna
-                $antalRader++;
                
-            
-        }
-            $delar = $rad;
+                    echo " <p>Filen går att läsa</p>";
+                } else {
+                    echo " <p>Filen går inte att läsa</p>";
+                }   
 
-            echo "</table";
-            // SKriv denna bättre
-echo "<p class=\"alert alert-primary\" role=\"alert\">Antalet rader som hittades var $antalRader <p/>";
             
-        
+
+                $allaRader = file($filnamn);
+
+                $antalRader = 0;
+
+                
+
+                echo "<table class=\"table table-striped\">";
+                echo "<th> scope=\col\">Gata</th>";
+                echo "<th> scope=\col\">Nummer</th>";
+                echo "<th> scope=\col\">PostNr</th>";
+                echo "<th> scope=\col\">OrganisationNr</th>";
+                foreach ($allaRader as $rad) {
+                    
+
+                    $delar = explode(",", $rad);
+
+                    echo "<tr><td>$delar[0]</td><td>$delar[1]</td><td>$delar[2] </td><td>$delar[3]</td></tr>";
+
+                    $antalRader++;
+                    
+                }
+                $delar = $rad;
+
+                echo "</table>";
+                echo " <p>Antet rader som skrevs ut var $antalRader</p>";
+                
+            
+            }
         ?>
     </div>
 </body>
 </html>
+    
+            <!--Du glömmde is_readable förra gången  -->
+            
+
+           <!-- // Glöm inte fil + filnamn här --> 
+        
+            
+               <!-- // Du glömmde $delar förra gången --> 
+             
+              <!--// $delar och inte $allaRader  -->
+               
+
+              <!-- // Glöm inte denna -->  
+              
+     
+           <!-- // SKriv denna bättre --> 
+
 
     <!-- Klasserna är innan (Är inte nödvändiga) -->
     
