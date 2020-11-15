@@ -21,9 +21,13 @@
 
     // Dagens datum, Inte $dDatum 
     // Undvik $dat
+    /* Här behövs både ett namn + = + vad för information vi vill ha gällande datum ex. tid, dag idag eller år */
+    /* Vilken dag i nummer i månaden */
      $dagensDag = date("d");
-     $månad = date("F");
+     /* Vilken dag under veckan med bokstäver */
      $dagensDatum = date("l", $unixTimestamp);
+     /* Vilken dag under månaden */
+     $månad = date("F");
      echo "<p>Idag är  $dagensDag  $dagensDatum $månad\"</p>";
      // Idag är monday 14 September. 
 

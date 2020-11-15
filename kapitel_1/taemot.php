@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+    /* Tar emot all information från sida form1.html */
     echo $_REQUEST["namn"];
     echo "<br>" ;
     echo $_REQUEST["pass"];

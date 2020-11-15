@@ -9,17 +9,20 @@
 <body>
     <?php
     // En array
+    /* Här skapar vi en låda som kan innehålla våra egna saker */
     $länder = ["Sverige", "Norge", "Finland"];
 
     // Skriver ut en hel array 
+    /* Ritar ut vår array med ett kontrollera kommmando */
     print_r($länder);
 
-
+/* Skriver ut variablerna en och en som vi plockar ur dem, börjar alltid på 0 */
     echo " <p>$länder[0]</p> ";
     echo " <p>$länder[1]</p> ";
     echo " <p>$länder[2]</p> ";
 
     // Utöka en array
+    /* Här så lägger vi till Danmnark till Sverige, Norge, Finland i vår låda */
     $länder[] = "Danmark";
 
     print_r($länder);
@@ -30,8 +33,10 @@
     echo " <p></p>";
 
     // Associativ array (Bra att använda i databaser)
+    /* En ny helt tom låda för objekt */
     $elever = []; // Tom array
 
+    /* Om den hittar ex. Viktor ge den värdet Guitar */
     $elever["Viktor"] = "Guitar";
     $elever["Lukas"] = "Keyboard";
     $elever["Olle"] = "Munspel";
@@ -39,6 +44,7 @@
 
     /* Loppar igenom en hel array -> bättre för arrayer med foreach */
 
+    /* Loppar helt igenom en låda */
     foreach ($länder as $land) {
         echo " <p>$land</p> ";
     }
@@ -51,7 +57,7 @@
     }
 
     // Skriv ut en tabell
-
+/* Hur man helt och hålletr skriver ut en tabell med PHP rad för rad taggar */
 
     echo "<table>";
     echo "<tr>";

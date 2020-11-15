@@ -25,16 +25,20 @@
 
             <?php
 // Finns data?
+/* Måste vara ifyllt */
 if (isset ($_POST["lån"], $_POST["ränta"], $_POST["lånetid"])) {
     // Ta emot formuläret 
+    /* Tar html taggar och säger att vi ska läsa dem */
     $låneMängd = $_POST["lån"];
     $ränta = $_POST["ränta"];
     $väljRänta = $_POST["lånetid"];
     //Sartåt = 0
+    /* En mattematisk lån uträkning */
     $låneKostnad = $låneMängd;
 
     // Räkna ut totala lånekostnaden 
     for ($i = 0; $i < $väljRänta; $i++) {
+        /* Tar startvärdet och räknar ihop det med procent i en multiplikation */
         $låneKostnad = $låneKostnad * (1 + $ränta / 100);
     }
 
@@ -47,6 +51,7 @@ if (isset ($_POST["lån"], $_POST["ränta"], $_POST["lånetid"])) {
             <label for="ränta">Ränta</label>
             <input type="text" name="ränta">
 
+            <!-- Olika alternativ -->
             <input id="knapp1" class="form-control" type="radio" name="lånetid" value="1"> Låneränta ett år
             <input id="knapp2" class="form-control" type="radio" name="lånetid" value="3"> Låneränta 3 år
             <input id="knapp3" class="form-control" type="radio" name="lånetid" value="5"> Låneränta 5 år <br>

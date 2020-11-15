@@ -18,11 +18,14 @@
 <div class="kontainer">
     <?php
     // Få lösenord och användarnamn
+    /* Läser av lösenordet som vi skriver in samt användarnamnet */
     $Lösenord = $_POST["lösenord"];
     $Användarnamn = $_POST["användarnamn"];
 
+    /* Låter oss bara logga in om lösenord == 123 och användarnamnet Viktor annars kraschar allt */
     // Se till att lösenord och användarnamn stämmer
 if ($Lösenord == "123" && $Användarnamn == "Viktor") {
+    /* Om det är korrekt skrivs det ut att du är inloggad */
     echo "<div class=\"alert alert-success\" role=\"alert\">
     Du är inloggad!
   </div>";

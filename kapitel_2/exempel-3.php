@@ -17,8 +17,10 @@
     $kotaktMeddelande = $_POST["kontaktMeddelande"];
     $kontakt = $_POST["roll"];
 
+    /* Man kan skapa en byrålåda men ett förbestämt meddelande så att man slipper skriva ut hela */
     $kotaktMeddelande = "Vi kommer inom kort ta kontakt med dig, tack för din ansökan";
     // Skriv ut all info för användaren
+    /* Tar formulärets tidigare information och klistrar in det i meningen med olika byrålådor */
     echo "<p> Hej $forNamn ! Din email som är inskriven är $emailForKlient. $kotaktMeddelande </p>";
 
     if ($kontakt == "epost") {

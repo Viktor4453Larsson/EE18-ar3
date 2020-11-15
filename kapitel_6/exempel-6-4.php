@@ -18,6 +18,7 @@
     </div>
 </body>
 <?php
+/* Filtrerar bort onödiga mellanrum i en epost adress */
 $epost = filter_input(INPUT_POST, "epost", FILTER_SANITIZE_STRING);
 
 
@@ -26,6 +27,7 @@ if ($epost) {
 
     // Dela upp med explode()
     $namnEpost = "$epost";
+    /* Var vi vill dela och i vad */
     $delar = explode("@", $epost);
 
     //var_dump($delar);
@@ -46,10 +48,13 @@ if ($epost) {
     // Dela upp med substr() med hjälp av strpos
     // Hitta var @ tecknet är någonstans
 
+    /* Strpos låter oss hitta olika tecken som @ */
     $position = strpos($namnEpost, "@");
     echo " <p>@ finns på position $position</p>";
+    /* Substr låter oss hitta den andra delen */
     $namn = substr($epost, 0, $namn);
     echo " <p>Namndelen är $namnEpost</p>";
+    /* Hur vi skriver båda delarna separat */
     $domän = substr('viktor.larsson020@gmail.com', $position + 1);
     echo " <p>Domänen är $domän</p>";
 

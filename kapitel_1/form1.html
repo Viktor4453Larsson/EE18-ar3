@@ -10,18 +10,23 @@
 <body>
     <div class="container">
         <h1>Formulär</h1>
+        <!-- Var vi skickar någon information till + att vi skickar ut den inte tillbaka den -->
         <form action="taemot.php" method="GET">
+            <!-- Namn som skickas vidare -->
             <label for="anamn">Ange användarnamn</label>
             <input id="anamn" class="form-control" type="text" name="namn">
+            <!-- Lösenord som skickas vidare --> 
             <label for="pass">Ange Lösenord</label>
             <input id="pass" class="form-control" type="password" name="pass">
             <label>Roll</label>
             <div>
+                <!-- Flera alternativ här med runda knappar måste vara samma namn så att man inte kan välja både och-->
                 <input type="radio" name="roll" value="1">Student
                 <input type="radio" name="roll" value="2">Lärare
             </div>
 
             <label for="Språk">Språk</label>
+            <!-- En dropdown meny för att välja mellan flera språk alternativ behöver separata värden -->
             <select name="Språk" class="form-control" id="Språk">
                 <option value="Sv">Svenska</option>
                 <option value="Fi">Finska</option>

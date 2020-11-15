@@ -30,10 +30,12 @@ $postnr = filter_input(INPUT_POST, "postnr", FILTER_SANITIZE_STRING);
 $postort = filter_input(INPUT_POST, "postort", FILTER_SANITIZE_STRING);
 
 // Om vi har data 
+/* Vilken data vill vi kontrollera */
 if ($namn && $adress && $postnr && $postort) {
     
     
    
+    /* Olika krav vi ställer på olika byrålådor vi skapat med strlen och if sats */
     // Kontrollera att alla fälten innehåller minst 3 tecken 
     if (strlen($namn) < 3 ) {
         echo " <p>Du måste ha minst 3 tecken bra gjort</p>";
