@@ -33,6 +33,7 @@
             } else {
                 echo "<p>&#10005; Matchar ej to eller too'.</p>";
             }  
+
         }
         ?>
     </div>

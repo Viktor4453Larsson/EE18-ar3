@@ -26,8 +26,6 @@ Skriv ut hela ritningen av det du ska bygga så att det går att bygga då behö
         if (isset($_POST["filnamn"])) {
             $filnamn = $_POST["filnamn"];
 
-            
-
             if (is_readable($filnamn)) {
 
                 echo " <p>Filen går att läsa</p>";
