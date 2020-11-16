@@ -32,7 +32,7 @@ Skriptet ska sedan presentera medellönen för personalen. -->
         $lönFörPerson2 = filter_input(INPUT_POST, "p2", FILTER_SANITIZE_STRING);
         $lönFörPerson3 = filter_input(INPUT_POST, "p3", FILTER_SANITIZE_STRING); if ($lönFörPerson1 && $lönFörPerson2 && $lönFörPerson3) {
             /* Skapa en variabel som kommer lägga ihop medellvärdet */
-            $medelvärdet = ($lönFörPerson1 + $lönFörPerson2 + $lönFörPerson3 / 3); 
+            $medelvärdet = ($lönFörPerson1 + $lönFörPerson2 + $lönFörPerson3) / 3; 
         /* Skriv ut medelvärdets summa */
         echo "<p>Medelvärdet på dina kollegors lön är $medelvärdet</p>";
          }
