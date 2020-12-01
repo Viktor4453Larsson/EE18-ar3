@@ -26,10 +26,19 @@ Skriptet skriver ut om hen får åka eller inte.
         <p>Välkommen till vår berg och dalbana du behöver vara mellan 1,4 till 1,9 meter lång för att åka!</p>
         <label>Skriv hur lång du är?
             <br>
-        <input type="text">
+        <input type="text" name="längd">
         </label>
         <br>
         <button type="submit">Får du åka eller inte?</button>
+    
+    <?php
+    $ärDuTillräckligtLång = filter_input(INPUT_POST, "längd", FILTER_SANITIZE_STRING);
+    if ($ärDuTillräckligtLång == "1,3-1,9") {
+        echo "<p>Du får åka</p>";
+    } else {
+        echo "<p>Du får inte åka</p>";
+    }
+    ?>
     </div>
 </head>
 <body>
