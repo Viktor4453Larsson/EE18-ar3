@@ -21,10 +21,12 @@ $pass = "m5acwIiFYDgff8RV";
 * Denna är för bilar tabellen
 */
 
-$user = "bilar";
+/*$user = "bilar";
 $db = "bilar";
 $host = "localhost";
-$pass = "rys5zapD9tQYWu1r";
+$pass = "rys5zapD9tQYWu1r";*/
+
+
 
 // Logga in på MySQL server och välj datanes
 $conn = new mysqli($host, $user, $pass, $db);
