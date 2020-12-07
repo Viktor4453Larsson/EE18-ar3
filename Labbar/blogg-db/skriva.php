@@ -19,14 +19,14 @@ include "./resuser/conn.php";
 </head>
 <body>
     <div class="kontainer">
+    <h1>Min blogg</h1>
     <nav>
     <ul class="nav nav-tabs">
         <li class="nav-item"><a class="nav-link" href="./lasa.php">Läsa</a></li>
         <li class="nav-item"><a class="nav-link active" href="./skriva.php">Skriva</a></li>
-        <li class="nav-item"><a class="nav-link" href="./lista.php">Admin</a></li>
+        <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
     </ul>
-</nav>
-        <h1>Min blogg</h1>
+</nav>   
         <form action="#" method="POST">
             <label>Ange rubrik <input type="text" name="header"></label>
             <label>Ange texten<textarea name="postText"></textarea></label>
