@@ -1,5 +1,4 @@
 
-
 <?php
 /*
 * En enkel blogg
@@ -8,7 +7,7 @@
 * @author     Viktor Larsson <viktor.larsson020@gmail.com>
 * @license    PHP CC
 */
-include "./projekt/permanent_lagring/sakerhet/conn.php";
+include "../sakerhet/conn.php";
 ?>
 <!DOCTYPE html>
 <html lang="sv">
@@ -17,17 +16,16 @@ include "./projekt/permanent_lagring/sakerhet/conn.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Länder och GPS kordinater</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="permanent_lagring.css">
+    <link rel="stylesheet" href="../permanent_lagring.css">
 </head>
 <body>
     <div class="kontainer">
     <h1>Länder och GPS kordinater</h1>
     <nav>
     <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link" href="./taemot.php">Läsa</a></li>
-        <li class="nav-item"><a class="nav-link " href="./lagra.php">Skriv ut informationen</a></li>
-        <li class="nav-item"><a class="nav-link active" href="./skriva.php">Skriva</a></li>
-        <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
+        <li class="nav-item"><a class="nav-link" href="../lasa1.php">Lista</a></li>
+        <li class="nav-item"><a class="nav-link active" href="./admin/skriva1.php">Skriva</a></li>
+        <li class="nav-item"><a class="nav-link" href="../sok1.php">Sök efter kordinater och länder</a></li>
     </ul>
 </nav>   
         <form action="#" method="POST">
@@ -41,7 +39,7 @@ include "./projekt/permanent_lagring/sakerhet/conn.php";
         $land = filter_input(INPUT_POST, "namn", FILTER_SANITIZE_STRING);
         $kommentar = filter_input(INPUT_POST, "kommentar", FILTER_SANITIZE_STRING);
         if ($gps && $land && $kommentar) {
-            var_dump($gps, $land, $kommentar);
+            //var_dump($gps, $land, $kommentar);
             /* SQL anslutning */
             $sql = "INSERT INTO lander (namn, kordinater, kommentar) VALUES ('$land', '$gps', '$kommentar')";
 

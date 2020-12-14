@@ -14,7 +14,7 @@ $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die ("Det gick inte att ansluta till permanent: " . $conn->error);
 } else {
-    echo "<p>Du kunde ansluta till databasen permanent</p>";
+   // echo "<p>Du kunde ansluta till databasen permanent</p>";
 }
 
 ?>
