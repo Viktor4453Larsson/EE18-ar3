@@ -61,52 +61,12 @@ include "./sakerhet/conn.php";
                 echo "<p> class=\"alert alert-info\" Antalet " . $resultat->num_rows . "Hittade inlägg </p>";
             }
 
-            if ($id && !$radera) {
-
-                // 2. Ställ en SQL-fråga
-                $sql = "SELECT * FROM lander WHERE id = '$id'";
-                $resultat = $conn->query($sql);
-
-                // Gick det bra?
-                if (!$resultat) {
-                    die("Något blev fel med SQL-satsen." . $conn->connect_error);
-                } else {
-                    $rad = $result->fetch_assoc();
-                    echo "<form action=\"#\" method=\"POST\">";
-                    echo "<div class=\"inlagg\">";
-                    echo "<h4>Inlägg $id</h4>";
-                    echo "<h5>$rad[id]</h5>";
-                    echo "<h5>$rad[namn]</h5>";
-                    echo "<h5>$rad[kordinater]</h5>";
-                    echo "<h6>$rad[kommentar]</h6>";
-                    echo "<p>$rad[date]</p>";
-                    echo "</div>";
-                    echo "<button class=\"btn btn-danger\" name=\"radera\" value=\"1\">Radera inlägget</button>";
-                    echo "</form>";
-                }
-            }
-
-            // När man klickat på knappen
-            if ($id && $radera) {
-
-                // 2. Ställ en SQL-fråga
-                $sql = "DELETE FROM lander WHERE id = '$id'";
-                $resultat = $conn->query($sql);
-
-                // Gick det bra?
-                if (!$resultat) {
-                    die("Något blev fel med SQL-satsen.");
-                } else {
-                    echo "<p class=\"alert alert-danger\">Inlägg $id har raderats!</p>";
-                }
-            }
-
             /* Kommando för att kolla om allt fungerar korrekt */
             //var_dump($resultat);
 
             /* Visa resultatet i kontainern */
             while ($rad = $resultat->fetch_assoc()) {
-                $snippet = mb_substr($rad['kommentar'], 0, 30);
+                $snippet = mb_substr($rad['inlagg'], 0, 30) . "...";
                 echo "<tr class=\"inlägg\"> ";
                 echo "<td>$snippet</td>";
                 echo "<td>$rad[id]</td>";
@@ -114,17 +74,17 @@ include "./sakerhet/conn.php";
                 echo "<td>$rad[kordinater]</td>";
                 echo "<td>$rad[kommentar]</td>";
                 echo "<td>$rad[date]</td>";
-                echo "</tr>";
-                echo "<td><a class=\"alert alert-warning\" href=\"skriva1.php id=$rad[id]\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a></td>";
-                echo "<td><a class=\"alert alert-danger\" href=\"lasa1.php id=$rad[id]\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a></td>";
+                echo "</tr>";  
+                echo "<td><a class=\"alert alert-warning\" href=\"redigera.php?id=$rad[id]\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a></td>";
+                echo "<td><a class=\"alert alert-danger\" href=\"radera.php?id=$rad[id]\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a></td>";
             }
 
-
-
-
-
-
-
+               
+                
+                
+                
+                
+           
 
             /* Stänger av databsen när vi inte behöver den mera */
             $conn->close();

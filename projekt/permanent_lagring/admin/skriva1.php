@@ -31,7 +31,7 @@ include "../sakerhet/conn.php";
         <form action="#" method="POST">
             <label>Ange GPS kordinater ex. 59,297326418,0522474 <input type="text" name="kordinater"></label>
             <label>Ange kommentarer<textarea name="kommentar"></textarea></label>
-            <label>Ange Land ex. Spanien<textarea name="namn"></textarea></label>
+            <label>Ange Land ex. Spanien <input type="text" name="namn"></label>
             <button>Spara</button>
         </form>
         <?php
