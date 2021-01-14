@@ -23,10 +23,16 @@ session_start();
             <h1>Inloggning</h1>
             <nav>
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
-                <li class="nav-item"><a class="nav-link active" href="./loggaIn.php">Logga In</a></li>
-                <li class="nav-item"><a class="nav-link" href="./loggaUt.php">Logga ut </a></li>
-                <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
+                    <?php if (isset($_SESSION["anamn"])) { ?>
+                        <li class="nav-item"><a class="nav-link" href="./loggaUt.php">Logga ut</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
+                        <li class="nav-item anamn"><?php
+                        echo $_SESSION["anamn"];
+                        ?></li>
+                    <?php } else { ?>
+                        <li class="nav-item"><a class="nav-link active" href="./loggaIn.php">Logga in</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
+                    <?php } ?>       
             </ul>
         </nav>
         </header>
@@ -60,6 +66,9 @@ session_start();
                         //Inloggad  
                         echo " <p class=\"alert alert-success\" role='alert'>Lösenordet är korrekt!</p>";
                         $_SESSION["anamn"] = $anvandernamn;
+
+                        // Hoppa till en sida som heter lista
+                        header("Location: ./lista.php");
                     } else {
                         //Fel 
                         echo " <p class=\"alert alert-danger\" role='alert'>Lösenordet stämmer inte!</p>";

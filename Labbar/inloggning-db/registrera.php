@@ -23,10 +23,13 @@ session_start();
             <h1>Inloggning</h1>
             <nav>
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" href="./registrera.php">Registrera</a></li>
-                <li class="nav-item"><a class="nav-link " href="./loggaIn.php">Logga In</a></li>
-                <li class="nav-item"><a class="nav-link" href="./loggaUt.php">Logga ut </a></li>
-                <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
+            <?php if (isset($_SESSION["anamn"])) { ?>
+                        <li class="nav-item"><a class="nav-link" href="./loggaUt.php">Logga ut</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
+                    <?php } else { ?>
+                        <li class="nav-item"><a class="nav-link " href="./loggaIn.php">Logga in</a></li> 
+                        <li class="nav-item"><a class="nav-link active" href="./registrera.php">Registrera</a></li>
+                    <?php } ?>    
             </ul>
         </nav>
         </header>
@@ -62,7 +65,7 @@ session_start();
                         //var_dump($namn, $efternamn, $anvandernamn, $lösenord1, $lösenord2);
                         //Räkna ut hash 
                         $hash = password_hash($lösenord1, PASSWORD_DEFAULT);
-                        $sql = "INSERT INTO användare (fnamn, enamn, anamn, hash) VALUES ( '$namn', '$efternamn', '$anvandernamn', '$hash')";
+                        $sql = "INSERT INTO användare (fnamn, enamn, anamn, skapad, hash) VALUES ( '$namn', '$efternamn', '$anvandernamn', '$hash', '$skapad')";
                         $conn->query($sql);
                         echo "<p class=\"alert alert-success\" role='alert'>Allt fungerar, tack för att du registrerade dig</p>";
                     } else {
