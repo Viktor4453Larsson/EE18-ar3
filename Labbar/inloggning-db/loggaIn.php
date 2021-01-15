@@ -26,12 +26,13 @@ session_start();
                     <?php if (isset($_SESSION["anamn"])) { ?>
                         <li class="nav-item"><a class="nav-link" href="./loggaUt.php">Logga ut</a></li>
                         <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
-                        <li class="nav-item anamn"><?php
-                        echo $_SESSION["anamn"];
-                        ?></li>
+                        <li class="nav-item anamn"><?php echo $_SESSION["anamn"];?></li>  
+                        <li class="nav-item"><a class="nav-link" href="./skriva1.php">Skriva</a></li>
                     <?php } else { ?>
                         <li class="nav-item"><a class="nav-link active" href="./loggaIn.php">Logga in</a></li> 
                         <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./sok1.php">Sök</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li> 
                     <?php } ?>       
             </ul>
         </nav>
@@ -61,11 +62,22 @@ session_start();
                     // Få ut hash:et isåfall
                     $rad = $result->fetch_assoc();
                     $hash = $rad['hash'];
+                    //var_dump($rad);
+                    //exit;
+
                     //Kontrollera lösenordet
                     if (password_verify($lösenord1, $hash)) {
                         //Inloggad  
                         echo " <p class=\"alert alert-success\" role='alert'>Lösenordet är korrekt!</p>";
                         $_SESSION["anamn"] = $anvandernamn;
+
+                        //Räkna upp antalet
+                        $antal = $rad['antal'] + 1;
+
+                        // Registrera ny inloggning 
+                        $sql = "UPDATE user SET antal = '$antal' WHERE id = $rad[id]";
+                        $conn->query($sql);
+                        $_SESSION["antal"] = $antal; 
 
                         // Hoppa till en sida som heter lista
                         header("Location: ./lista.php");

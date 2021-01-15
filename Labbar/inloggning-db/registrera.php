@@ -26,9 +26,12 @@ session_start();
             <?php if (isset($_SESSION["anamn"])) { ?>
                         <li class="nav-item"><a class="nav-link" href="./loggaUt.php">Logga ut</a></li>
                         <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li>
                     <?php } else { ?>
                         <li class="nav-item"><a class="nav-link " href="./loggaIn.php">Logga in</a></li> 
                         <li class="nav-item"><a class="nav-link active" href="./registrera.php">Registrera</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./sok1.php">Sök</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="./skriva1.php">Skriva</a></li>
                     <?php } ?>    
             </ul>
         </nav>
@@ -65,7 +68,7 @@ session_start();
                         //var_dump($namn, $efternamn, $anvandernamn, $lösenord1, $lösenord2);
                         //Räkna ut hash 
                         $hash = password_hash($lösenord1, PASSWORD_DEFAULT);
-                        $sql = "INSERT INTO användare (fnamn, enamn, anamn, skapad, hash) VALUES ( '$namn', '$efternamn', '$anvandernamn', '$hash', '$skapad')";
+                        $sql = "INSERT INTO användare (fnamn, enamn, anamn, skapad, antal, hash) VALUES ( '$namn', '$efternamn', '$anvandernamn', '$hash', '$skapad', '$antal')";
                         $conn->query($sql);
                         echo "<p class=\"alert alert-success\" role='alert'>Allt fungerar, tack för att du registrerade dig</p>";
                     } else {
