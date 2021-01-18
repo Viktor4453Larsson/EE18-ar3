@@ -46,12 +46,10 @@ session_start();
         $sql = "INSERT INTO användare (fnamn, enamn, anamn, skapad, antal, hash) VALUES ( '$namn', '$efternamn', '$anvandernamn', '$hash', '$skapad', '$antal')";
         $conn->query($sql);
 
-        $sql = "SELECT användare.id, användare.fnamn, användare.enamn, användare.anamn, användare.skapad, användare.antal, användare.hash, post.header, post.postText, post.postDate FROM användare, post";
 
         $header = filter_input(INPUT_POST, 'header', FILTER_SANITIZE_STRING);
         $postText = filter_input(INPUT_POST, 'postText', FILTER_SANITIZE_STRING);
         if ($header && $postText) {
-            var_dump($header, $postText);
             /* SQL anslutning */
             $sql = "INSERT INTO post (header, postText) VALUES ('$header', '$postText')";
 
@@ -62,7 +60,7 @@ session_start();
             if (!$result) {
                 die("Något blev fel med SQL-satsen");
             } else {
-                echo "<p>Inlägget har registrerats</p>";
+                echo "<p class=\"alert alert-success\">Inlägget har registrerats</p>";
             }
 
 

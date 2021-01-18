@@ -29,11 +29,13 @@ session_start();
                     <li class="nav-item"><a class="nav-link" href="./skriva1.php">Skriva</a></li>
                     <li class="nav-item"><a class="nav-link active" href="./sok1.php">Sök</a></li>
                     <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li>
-                    <li class="nav-item anamn"><?php echo $_SESSION["anamn"]; ?></li>
+                    <li class="nav-item anamn"><?php echo $_SESSION["anamn"]; ?></li>       
                 <?php } else { ?>
-                    <li class="nav-item"><a class="nav-link active" href="./loggaIn.php">Logga in</a></li>
+                    <li class="nav-item"><a class="nav-link " href="./loggaIn.php">Logga in</a></li>
                     <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
-
+                    <li class="nav-item"><a class="nav-link active" href="./sok1.php">Sök</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li>
+                    <li class="nav-item anamn"><?php echo $_SESSION["anamn"]; ?></li>
                 <?php } ?>
             </ul>
         </nav>
@@ -45,7 +47,7 @@ session_start();
         $sql = "INSERT INTO användare (fnamn, enamn, anamn, skapad, antal, hash) VALUES ( '$namn', '$efternamn', '$anvandernamn', '$hash', '$skapad', '$antal')";
         $conn->query($sql);
 
-        $sql = "SELECT användare.id, användare.fnamn, användare.enamn, användare.anamn, användare.skapad, användare.antal, användare.hash, post.header, post.postText, post.postDate FROM användare, post";
+       
 
         $sökterm = filter_input(INPUT_POST, 'sökterm', FILTER_SANITIZE_STRING);
 
@@ -60,7 +62,7 @@ session_start();
             if (!$result) {
                 die("Något blev fel med SQL-satsen" . $conn->error);
             } else {
-                echo "<p> class=\"alert alert-success\" Antalet " . $result->num_rows . " Hittade inlägg </p>";
+                echo "<p class=\"alert alert-success\">  Antalet " . $result->num_rows . " Hittade inlägg </p>";
             }
 
             // Steg 3

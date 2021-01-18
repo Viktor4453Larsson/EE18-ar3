@@ -31,7 +31,7 @@ session_start();
                     <?php } else { ?>
                         <li class="nav-item"><a class="nav-link active" href="./loggaIn.php">Logga in</a></li> 
                         <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="./sok1.php">Sök</a></li> 
+                        <li class="nav-item"><a class="nav-link " href="./sok1.php">Sök</a></li> 
                         <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li> 
                     <?php } ?>       
             </ul>
@@ -48,13 +48,10 @@ session_start();
             $anvandernamn = filter_input(INPUT_POST, "anamn", FILTER_SANITIZE_STRING);
             $lösenord1 = filter_input(INPUT_POST, "lösen1", FILTER_SANITIZE_STRING);
 
-            //var_dump($anvandernamn, $lösenord1);
-
-
             // Ett till steg av skydd
             if ($anvandernamn && $lösenord1) {
                 // Finns det en användare
-                $sql = "SELECT *  FROM användare WHERE anamn LIKE '$anvandernamn'";
+                $sql = "SELECT *  FROM user WHERE anamn LIKE '$anvandernamn'";
                 $result = $conn->query($sql);
                 if ($result->num_rows == 0) {
                     echo " <p class=\"alert alert-danger\" role='alert'> Användarnamnet är redan taget och upptaget</p>";
@@ -62,8 +59,6 @@ session_start();
                     // Få ut hash:et isåfall
                     $rad = $result->fetch_assoc();
                     $hash = $rad['hash'];
-                    //var_dump($rad);
-                    //exit;
 
                     //Kontrollera lösenordet
                     if (password_verify($lösenord1, $hash)) {

@@ -26,12 +26,12 @@ session_start();
             <?php if (isset($_SESSION["anamn"])) { ?>
                         <li class="nav-item"><a class="nav-link" href="./loggaUt.php">Logga ut</a></li>
                         <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./skriva1.php">Skriva</a></li>
                     <?php } else { ?>
                         <li class="nav-item"><a class="nav-link " href="./loggaIn.php">Logga in</a></li> 
                         <li class="nav-item"><a class="nav-link active" href="./registrera.php">Registrera</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="./sok1.php">Sök</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="./skriva1.php">Skriva</a></li>
+                        <li class="nav-item"><a class="nav-link " href="./sok1.php">Sök</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li>
                     <?php } ?>    
             </ul>
         </nav>
@@ -47,28 +47,27 @@ session_start();
             </form>
             <?php
             // Filtrera och skydda mot framtida hot
-            $namn = filter_input(INPUT_POST, "fnamn", FILTER_SANITIZE_STRING);
-            $efternamn = filter_input(INPUT_POST, "enamn", FILTER_SANITIZE_STRING);
-            $anvandernamn = filter_input(INPUT_POST, "anamn", FILTER_SANITIZE_STRING);
-            $lösenord1 = filter_input(INPUT_POST, "lösen1", FILTER_SANITIZE_STRING);
-            $lösenord2 = filter_input(INPUT_POST, "lösen2", FILTER_SANITIZE_STRING);
+            $fnamn = filter_input(INPUT_POST, "fnamn", FILTER_SANITIZE_STRING);
+            $enamn = filter_input(INPUT_POST, "enamn", FILTER_SANITIZE_STRING);
+            $anamn= filter_input(INPUT_POST, "anamn", FILTER_SANITIZE_STRING);
+            $lösen1 = filter_input(INPUT_POST, "lösen1", FILTER_SANITIZE_STRING);
+            $lösen2 = filter_input(INPUT_POST, "lösen2", FILTER_SANITIZE_STRING);
 
             // Ett till steg av skydd
-            if ($namn && $efternamn && $anvandernamn && $lösenord1 && $lösenord2) {
+            if ($fnamn && $enamn && $anamn && $lösen1 && $lösen2) {
                 // @TODO kontrollera att användarnamnet inte används flera gånger, att eposten fungerar och kräv mera av lösenordet
 
-                $sql = "SELECT *  FROM användare WHERE anamn LIKE '$anvandernamn'";
+                $sql = "SELECT *  FROM user WHERE anamn = '$anamn'";
                $result = $conn->query($sql);
 
                 if ($result->num_rows != 0) {
                     echo " <p class=\"alert alert-danger\" role='alert'> Användarnamnet är redan taget och upptaget</p>";
                 } else {
                     // Kontrollera om lösenorden matchar med varandra 
-                    if ($lösenord1 == $lösenord2) {
-                        //var_dump($namn, $efternamn, $anvandernamn, $lösenord1, $lösenord2);
+                    if ($lösen1 == $lösen2) {
                         //Räkna ut hash 
-                        $hash = password_hash($lösenord1, PASSWORD_DEFAULT);
-                        $sql = "INSERT INTO användare (fnamn, enamn, anamn, skapad, antal, hash) VALUES ( '$namn', '$efternamn', '$anvandernamn', '$hash', '$skapad', '$antal')";
+                        $hash = password_hash($lösen1, PASSWORD_DEFAULT);
+                        $sql = "INSERT INTO user (fnamn, enamn, anamn, hash, antal) VALUES ( '$fnamn', '$enamn', '$anamn', '$hash', '$antal')";
                         $conn->query($sql);
                         echo "<p class=\"alert alert-success\" role='alert'>Allt fungerar, tack för att du registrerade dig</p>";
                     } else {

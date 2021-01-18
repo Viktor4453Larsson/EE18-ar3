@@ -30,12 +30,12 @@ if (!isset($_SESSION["anamn"])) {
                         <li class="nav-item"><a class="nav-link" href="./loggaUt.php">Logga ut</a></li>
                         <li class="nav-item"><a class="nav-link active" href="./lista.php">Lista</a></li>
                         <li class="nav-item"><a class="nav-link" href="./skriva1.php">Skriva</a></li>
+                        <li class="nav-item"><a class="nav-link " href="./sok1.php">Sök</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li>
                         <li class="nav-item"><?php echo $_SESSION["anamn"] . " (" . $_SESSION["antal"] . ")"?></a></li>
                     <?php } else { ?>
                         <li class="nav-item"><a class="nav-link " href="./loggaIn.php">Logga in</a></li>
                         <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="./sok1.php">Sök</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="./lasa1.php">Läsa</a></li>
                     <?php } ?>  
                 </ul>
             </nav>
