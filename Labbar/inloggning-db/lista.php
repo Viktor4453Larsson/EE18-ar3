@@ -47,7 +47,7 @@ if (!isset($_SESSION["anamn"])) {
                 echo " <p class=\"alert alert-success\" role='alert'>Du är inloggad</p>";
                 echo "<p class=\"alert alert-success\">  Antalet " . $result->num_rows . " Hittade inlägg $antal </p>";
                 // Vissar alla användare i din registrera tabell
-                $sql = "SELECT * FROM användare";
+                $sql = "SELECT * FROM user";
                 $result = $conn->query($sql);
                 echo "<table>";
                 echo "<tr><th>Förnamn</th><th>Efternamn</th><th>Användarnamn</th><th>Datum</th><tr>";

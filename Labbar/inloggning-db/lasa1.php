@@ -15,7 +15,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blogg</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,7 +40,7 @@ session_start();
             </ul>
         </nav>
         <?php
-         $sql = "SELECT * FROM post";
+         $sql = "SELECT * FROM post ORDER BY postDate DESC";
          $result = $conn->query($sql);
         // Gick det bra? att ansluta
         if (!$result) {
@@ -49,17 +49,22 @@ session_start();
             echo "<p class=\"alert alert-success\" > Antalet " . $result->num_rows . " hämtade inlägg </p>";
         }
 
+        $rad = array_reverse($rad);
+
         // Steg 3
         // var_dump($result);
         // Presentera resultatet
-        while ($rad = $result->fetch_assoc()) {
-            echo "<div class=\"inlägg\">";
-            echo "<tr>";
-            echo "<td>$rad[postText]</td>";
-            echo "<td>$rad[postDate]</td>";
-            echo "<td>$rad[antal]</td>";
-            echo "</tr>";
+        echo "<div class=\"alert alert-primary\">";
+        while ($rad = $result->fetch_assoc()) { 
+            
+            echo "<p class=<\"table-primary\">$rad[header]</p>";
+            echo "<p class=<\"table-primary\">$rad[postText]</p>";
+            echo "<p class=<\"table-primary\">$rad[postDate]</p>";
+            echo "<p class=<\"table-primary\">$rad[antal]</p>";
+            
+            
         }
+        echo "<div/ class=\"inlägg\">";
         // Steg 4 stäng av databasen efter att du använt den
         $conn->close();
 

@@ -70,9 +70,9 @@ session_start();
             // Presentera resultatet
             while ($rad = $result->fetch_assoc()) {
                 echo "<div class=\"inlägg\">";
-                echo "<h5>$rad[header]<h5>";
-                echo "<h6>$rad[postText]<h6>";
-                echo "<p>$rad[postDate]<p>";
+                echo "<p class=\"alert alert-warning\">$rad[header]<p>";
+                echo "<p class=\"alert alert-warning\">$rad[postText]<p>";
+                echo "<p class=\"alert alert-warning\">$rad[postDate]<p>";
                 echo "</div>";
             }
 

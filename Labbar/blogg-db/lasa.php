@@ -49,6 +49,7 @@ include "./resuser/conn.php";
             echo "<p>$rad[postDate]<p>";
             echo "</div>";
         }
+        
         // Steg 4 stäng av databasen efter att du använt den
         $conn->close();
 
