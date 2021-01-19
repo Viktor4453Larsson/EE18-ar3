@@ -73,6 +73,7 @@ session_start();
                         $sql = "UPDATE user SET antal = '$antal' WHERE id = $rad[id]";
                         $conn->query($sql);
                         $_SESSION["antal"] = $antal; 
+                        $_SESSION["id"] = $rad["id"];
 
                         // Hoppa till en sida som heter lista
                         header("Location: ./lista.php");

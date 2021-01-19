@@ -43,15 +43,15 @@ session_start();
             <button>Spara</button>
         </form>
         <?php
-        $sql = "INSERT INTO användare (fnamn, enamn, anamn, skapad, antal, hash) VALUES ( '$namn', '$efternamn', '$anvandernamn', '$hash', '$skapad', '$antal')";
-        $conn->query($sql);
 
 
         $header = filter_input(INPUT_POST, 'header', FILTER_SANITIZE_STRING);
         $postText = filter_input(INPUT_POST, 'postText', FILTER_SANITIZE_STRING);
+        
         if ($header && $postText) {
             /* SQL anslutning */
-            $sql = "INSERT INTO post (header, postText) VALUES ('$header', '$postText')";
+            $sql = "INSERT INTO post (header, postText, user_id) VALUES ('$header', '$postText', '$_SESSION[id]')";
+            
 
             // Steg 2: Nu kör vi alla SQL satserna
             $result = $conn->query($sql);

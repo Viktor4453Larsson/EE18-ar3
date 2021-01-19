@@ -40,8 +40,8 @@ session_start();
             </ul>
         </nav>
         <?php
-         $sql = "SELECT * FROM post ORDER BY postDate DESC";
-         $result = $conn->query($sql);
+        $sql = "SELECT * FROM post ORDER BY postDate DESC";
+        $result = $conn->query($sql);
         // Gick det bra? att ansluta
         if (!$result) {
             die("Det gick inte att köra SQL kommandot!" . $conn->error);
@@ -55,14 +55,12 @@ session_start();
         // var_dump($result);
         // Presentera resultatet
         echo "<div class=\"alert alert-primary\">";
-        while ($rad = $result->fetch_assoc()) { 
-            
+        while ($rad = $result->fetch_assoc()) {
+            echo " <p class=<\"table-primary\">$rad[user_id]</p>";
             echo "<p class=<\"table-primary\">$rad[header]</p>";
             echo "<p class=<\"table-primary\">$rad[postText]</p>";
             echo "<p class=<\"table-primary\">$rad[postDate]</p>";
             echo "<p class=<\"table-primary\">$rad[antal]</p>";
-            
-            
         }
         echo "<div/ class=\"inlägg\">";
         // Steg 4 stäng av databasen efter att du använt den
