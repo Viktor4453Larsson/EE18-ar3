@@ -33,7 +33,6 @@ session_start();
                 <?php } else { ?>
                     <li class="nav-item"><a class="nav-link active" href="./loggaIn.php">Logga in</a></li>
                     <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
-
                 <?php } ?>
             </ul>
         </nav>
@@ -44,26 +43,20 @@ session_start();
         </form>
         <?php
 
-
         $header = filter_input(INPUT_POST, 'header', FILTER_SANITIZE_STRING);
         $postText = filter_input(INPUT_POST, 'postText', FILTER_SANITIZE_STRING);
         
         if ($header && $postText) {
             /* SQL anslutning */
             $sql = "INSERT INTO post (header, postText, user_id) VALUES ('$header', '$postText', '$_SESSION[id]')";
-            
-
             // Steg 2: Nu kör vi alla SQL satserna
             $result = $conn->query($sql);
-
             // Gick det att köra SQL koden?
             if (!$result) {
                 die("Något blev fel med SQL-satsen");
             } else {
                 echo "<p class=\"alert alert-success\">Inlägget har registrerats</p>";
             }
-
-
             // Steg 3: Stänga ner anslutningen
             $conn->close();
         }

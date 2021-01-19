@@ -83,8 +83,6 @@ session_start();
                     }
                 }
             }
-
-
             ?>
         </main>
     </div>

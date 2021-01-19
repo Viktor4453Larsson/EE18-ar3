@@ -58,8 +58,6 @@ if (!isset($_SESSION["anamn"])) {
                     echo "<td>$rad[anamn]</td>";
                     echo "<td>$rad[skapad]</td>";
                     echo "</tr>";
-                    echo "<td><a class=\"btn btn-outline-danger\" href=\"radera-verifiera-db.php?id={$rad['id']}\">Radera</a></td>";
-                    echo "<td><a class=\"btn btn-outline-warning\" href=\"radera-verifiera-db.php?id={$rad['id']}\">Redigera</a></td>";
                 }
                 echo "</table>";
                 // Steg 3: Stänga ner anslutningen
