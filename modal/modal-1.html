@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modual fönster</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="modal-1.css">
+</head>
+<body>
+    <div class="kontainer">
+        <h1>Modual fönster</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Logga In</a>
+                  <a class="nav-link" href="#"data-bs-toggle="modal" data-bs-target="#exampleModa2">Privat Policy GDPR</a>
+                  <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Pricing</a>
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Logga in hos oss</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <label for="anvandarnamn" class="input-group-text" id="basic-addon1" >
+                    Användarnamn  <input type="text" class="form-control" type="text" placeholder="Default input" aria-label="default input example">> 
+                  </label>
+        
+                  <label for="" class="input-group-text" id="basic-addon1">
+                     Lösenord <input type="text"class="form-control" type="text" placeholder="Default input" aria-label="default input example">>
+                  </label>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stäng</button>
+                  <button type="button" class="btn btn-primary">Logga In</button>
+            </form>
+        </div>
+      </div>
+    </div>
+
+  <!-- GDPR -->
+  
+  <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">GDPR</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <h2>
+                    Hantera din integritet
+                </h2>
+                <p>
+                    För att ge dig den bästa upplevelsen använder vi och våra partner tekniska metoder såsom cookies för att lagra och/eller komma åt enhetsuppgifter. Att ge medgivande till dessa metoder gör att vi och våra partner kan hantera personliga data såsom surfbeteende eller unika ID:n på den här hemsidan. Om du inte ger ditt medgivande, eller om du tar tillbaka ditt medgivande, kan vissa funktioner påverkas markant.
+                </p>
+                <p>
+                    Klicka här nedan för att acceptera det som anges ovan eller för att acceptera specifika cookies, inklusive rätten att neka till att företag hanterar dina personliga data utifrån legitima intressen istället för medgivande. Du kan uppdatera dina val när som helst genom att klicka på integritetsikonen längst ned på skärmen.
+                </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stäng</button>
+                  <button type="button" class="btn btn-primary">Logga In</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="./modal-1.js"></script>
+</body>
+</html>

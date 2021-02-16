@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>querySelector</title>
+    <link rel="stylesheet" href="querySelector-2.css">
+</head>
+<body>
+    <div class="kontainer">
+        <!-- Om använder skriver in rätt kodord visa första versen i en textarea -->
+        <h1>Träna på läsa och ändra element på webbsidan med ett kodord</h1>
+
+        <h2>Input</h2>
+        <label>Ange ett kodord<input class="fnamn" type="text"></label>
+        <button type="button">Kontrollera</button>
+
+        <h2>Output</h2>
+        <label>Svar <textarea name="svar" class="svar" id="" cols="30" rows="10"></textarea></label>
+        
+    </div>
+    <script>
+        // Element vi använder
+
+        const eRutaNamn = document.querySelector(".fnamn");
+        const eSvarsRuta = document.querySelector(".svar");
+        const eButton = document.querySelector("button");
+
+        // Läs av innehållet i input-rutan
+
+        
+        eButton.addEventListener("click", function () {
+            var svar = eSvarsRuta.value;
+            if (svar = "Sommar") {
+            eSvarsRuta.value = "Ja visst gör det ont när knoppar brister" + "Varför skulle annars våren tveka?" +
+            "Varför skulle all vår heta längtan bindas i det frusna bitterbleka?" +
+            "Höljet var ju knoppen hela vintern.Vad är det för nytt, som tär och spränger?" +
+            "Ja visst gör det ont när knoppar brister,ont för det som växer och det som stänger.";
+        }  
+        });
+
+    </script>
+</body>
+</html>
