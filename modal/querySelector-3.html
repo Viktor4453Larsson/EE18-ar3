@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>querySelector() och value</title>
+    <link rel="stylesheet" href="querySelector-3.css">
+</head>
+<body>
+    <div class="kontainer">
+        <h1>Smileys</h1>
+        <h2>Input</h2>
+        <label>Ange text <input class="angeText" type="text"></label>
+        <button class="rad">Ny rad</button>
+        <button class="tomKnapp">Töm</button>
+        <br>
+
+        <button class="glad">😀</button>
+        <button class="uppgiven">😳</button>
+        <button class="cowboy">🤠</button>
+       
+
+        <h2>Output</h2>
+        <label>Svar <textarea class="svar" cols="30" rows="10" readonly></textarea>
+        </label>
+    </div>
+    <script>
+        /* Alla element som vi behöver använda */
+const eRutaText = document.querySelector("input");
+const eKnapp = document.querySelector("button");
+const etomKnapp = document.querySelector(".tomKnapp");
+const eTextarea = document.querySelector("textarea");
+const eSmiley1 = document.querySelector(".glad");
+const eSmiley2 = document.querySelector(".uppgiven");
+const eSmiley3 = document.querySelector(".cowboy");
+
+/* Vad som händer om vi klickar på en knapp */
+eKnapp.addEventListener("click", function() {
+    /* Läs av inputen */
+var text = eRutaText.value;
+    /* Skriv ut den */
+    /* Det är värdet som finns inuti sedan lägger vi bara på ett mellanrum */
+    eTextarea.value += text + "\n"; 
+
+    eRutaText.value = null;
+});
+etomKnapp.addEventListener("click", function() {
+ eTextarea.value = "";
+});
+eSmiley1.addEventListener("click", function () {
+    var gladgubbe = "😀";
+    eTextarea.value = gladgubbe;
+});
+eSmiley2.addEventListener("click", function () {
+    var uppgivenSmiley = "😳";
+    eTextarea.value = uppgivenSmiley;
+});
+eSmiley3.addEventListener("click", function () {
+    var cowboySmiley = "🤠";
+    eTextarea.value = cowboySmiley;
+});
+    </script>
+</body>
