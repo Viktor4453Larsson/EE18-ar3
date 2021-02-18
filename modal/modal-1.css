@@ -29,11 +29,11 @@ body {
 .kontainer input {
     margin-bottom: 1px;
 }
-#exampleModal .modal-content {
+#geoModal .modal-content {
     background-color: #94b156b9;
     color: white;
 }
-#exampleModal .btn {
+#geoModal .btn {
     background-color: none;
     border: 1px solid #fff;
     color: #fff;
