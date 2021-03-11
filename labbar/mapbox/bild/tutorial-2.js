@@ -1,5 +1,6 @@
 const eTable = document.querySelector("table");
 const eSamlaData = document.querySelector("button");
+const eKnappSkicka = document.querySelector("btn-skicka");
 
 eSamlaData.addEventListener("click", function () {
     console.log(eSamlaData);
@@ -14,6 +15,15 @@ eSamlaData.addEventListener("click", function () {
      // Loppa igenom alla celler
      eCeller.forEach(cell => {
          console.log(cell.innerText);
+
+         var formData = new FormData();
+         formData.append("texten", "Latitude")
+
+         fetch("spara.php", {
+             method: "post", 
+             body: formData
+         })
+         .then(response => response.text())
      });
 })
 
@@ -27,6 +37,15 @@ var map = new mapboxgl.Map({
     center: [16.184097, 58.596887], //Långetud och Latitude
     zoom: 7.7
 });
+
+// Skicka till backend
+eKnappSkicka.addEventListener("click", function () {
+    fetch("./mapbox.php")               //Skickar
+    .then(response => response.text())  //Ett svar
+    .then(data => {
+        
+    })
+})
 
 // Själv kunna lägga till markeringar på en karta
 map.on("click", function (e) {
@@ -47,6 +66,7 @@ map.on("click", function (e) {
       newRow.insertCell().innerText = e.lngLat.lng;
       newRow.insertCell().innerText = e.lngLat.lng;
       newRow.insertCell().contentEditebal = "true";
+      
       
 
 });
