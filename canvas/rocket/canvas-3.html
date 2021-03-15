@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./canvas-1.css">
+    <title>Canvas grunder</title>
+</head>
+<body>
+    <!-- Här börjar vi med vår canvas -->
+    <canvas width="800" height="600"></canvas>
+    <!-- Här börjar vår JS -->
+    <script>
+     // Elementen som vi använder
+    const eCanvas = document.querySelector("canvas");
+     
+    // Plocka fram verktygen -> gör så att det går att rita
+    var ctx = eCanvas.getContext("2d");
+
+    // Ta in bilder i canvas
+    //1. Ladda in bilden i canvas
+    var moon = new Image();
+    moon.src = "./bild/nasa-jlV2k_Fx0fc-unsplash.jpg";
+
+    //Bild nummer2
+    var rocket = new Image();
+    rocket.src = "./bild/rocket-icon.png";
+    //2. Visa bilden
+    /*bild.addEventListener("load", function () {
+        ctx.drawImage(bild, 200, 400);
+        ctx.drawImage(bild, 300, 400);
+        ctx.drawImage(bild, 400, 400);
+    });*/
+
+    //Animationsloop nummer 2 
+    var rocketX = 300, rocketY = 400;
+    var speed = 2;
+    function loopen() {
+      ctx.clearRect(0, 0, 800, 600)
+    
+      ctx.drawImage(moon, 0, 0);
+      ctx.drawImage(rocket, rocketX, rocketY)
+      
+
+      rocketY -= speed;
+      
+      //Accerlera hastigheten 
+      speed += 0.4;   
+
+      
+      requestAnimationFrame(loopen)
+    }
+     loopen();
+
+    
+
+
+    </script>
+</body>
+</html>
