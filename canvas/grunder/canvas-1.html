@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./canvas-1.css">
+    <title>Canvas grunder</title>
+</head>
+<body>
+    <!-- Här börjar vi med vår canvas -->
+    <canvas width="800" height="600"></canvas>
+    <!-- Här börjar vår JS -->
+    <script>
+     // Elementen som vi använder
+    const eCanvas = document.querySelector("canvas");
+     
+    // Plocka fram verktygen -> gör så att det går att rita
+    var ctx = eCanvas.getContext("2d");
+
+    // Rita en fylld rektangeln 
+    ctx.fillStyle = "red";
+    ctx.fillRect(300, 250, 200, 100);
+
+    //Rita en tom fyrkant
+    ctx.strokeStyle = "blue";
+    ctx.strokeRect(100, 100, 50, 50);
+    ctx.lineWidth = "2";
+
+
+    // Ta in bilder i canvas
+    //1. Ladda in bilden i canvas
+    var image = new Image();
+    bild.src = "./bilder/Pig-icon.png";
+    //2. Visa bilden
+    ctx.drawImage(bild, 200, 400);
+
+
+    </script>
+</body>
+</html>

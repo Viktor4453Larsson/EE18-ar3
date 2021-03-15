@@ -6,49 +6,22 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="mapbox.css">
 </head>
 <body>
-    <div class="kontainer"></div>
-    <div id='map' class="kontainer">
-    <style>
-        body {
-    margin: 0;
-    padding: 0;
-}
-
-#map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-}
-    </style>
-    <script>
-        // De som gör att min karta tas fram
-        mapboxgl.accessToken = 'pk.eyJ1IjoidmlrdG9ybGFyc3NvbjgiLCJhIjoiY2tsNmRzZjNzMjgwMTJubGI2Z2pwdjZrbSJ9.mDPInUCth6o7-VU2tAzFQw'; // replace this with your access token
-
-        // Här skapas kartan
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/viktorlarsson8/ckm1xfz2r0dmc17k5qezqk31l', // replace this with your style URL
-            center: [16.184097, 58.596887], //Långetud och Latitude
-            zoom: 7.7
-        });
-
-        // Själv kunna lägga till markeringar på en karta
-        map.on("click", function (e) {
-            console.log("Du har klickat på en karta!", );
-
-            // Infogga en markerare
-            var marker = new mapboxgl.Marker()
-               .setLngLat(e.lngLat)
-               .addTo(map);
-        })
-    </script>
-    <script src="./tutorial-2.js"></script>
-    <button>Spara</button>
-    <button type="submit" class="btn-skicka">Skicka</button>
+    <div class="kontainer">
+        <div id='map'></div>
+        <table class="table table-striped">
+            <tr>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Text</th>
+            </tr>
+        </table>
+        <button type="button" class="btn btn-primary">Spara</button>
     </div>
+    <script src="./tutorial-2.js"></script>
 </body>
 </html>
