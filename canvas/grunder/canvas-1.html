@@ -32,7 +32,13 @@
     var image = new Image();
     bild.src = "./bilder/Pig-icon.png";
     //2. Visa bilden
-    ctx.drawImage(bild, 200, 400);
+    bild.addEventListener("load"), function () {
+        ctx.drawImage(bild, 200, 400);
+    };
+    
+
+
+
 
 
     </script>

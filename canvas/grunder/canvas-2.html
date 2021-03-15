@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./canvas-1.css">
+    <title>Canvas grunder</title>
+</head>
+<body>
+    <!-- Här börjar vi med vår canvas -->
+    <canvas width="800" height="600"></canvas>
+    <!-- Här börjar vår JS -->
+    <script>
+     // Elementen som vi använder
+    const eCanvas = document.querySelector("canvas");
+     
+    // Plocka fram verktygen -> gör så att det går att rita
+    var ctx = eCanvas.getContext("2d");
+
+    // Ta in bilder i canvas
+    //1. Ladda in bilden i canvas
+    var bild1 = new Image();
+    bild1.src = "./bilder/Pig-icon.png";
+
+    //Bild nummer2
+    var bild2 = new Image();
+    bild2.src = "./bilder/toad-icon-of-colored-outline-style-available-in-svg-png-eps-toad-outline-png-256_256.png";
+    //2. Visa bilden
+    /*bild.addEventListener("load", function () {
+        ctx.drawImage(bild, 200, 400);
+        ctx.drawImage(bild, 300, 400);
+        ctx.drawImage(bild, 400, 400);
+    });*/
+
+    //Animationsloop nummer 2 
+    var x1 = 0;
+    var y1 = 12;
+
+    var x2 = 0;
+    var y2 = 600;
+    function loopen() {
+        // Suddar bort skuggan av den ikon vi flyttar
+        ctx.clearRect(0, 0, 800, 600);
+        
+        ctx.drawImage(bild1, x1, y1);
+
+        // Vi ökar positionen på ikonen och var den finns (i detta fall bara i x ledd åt höger)
+        x1 += 5;
+        // Vi ökar positionen på ikonen och var den finns (i detta fall bara i y ledd åt neråt)
+        y1 += 5;
+        console.log(x1, y1);
+
+        // Suddar bort skuggan av den ikon vi flyttar
+       
+        ctx.drawImage(bild2, x2, y2);
+
+        // Vi ökar positionen på ikonen och var den finns (i detta fall bara i x ledd åt höger)
+        x2 += 1;
+        // Vi ökar positionen på ikonen och var den finns (i detta fall bara i y ledd åt neråt)
+        y2 -= 5;
+        console.log(x2, y2);
+        requestAnimationFrame(loopen);
+
+    }
+     loopen();
+
+    
+
+
+    </script>
+</body>
+</html>
