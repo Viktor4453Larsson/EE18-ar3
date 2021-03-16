@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./canvas-1.css">
+    <title>Canvas klocka</title>
+</head>
+<body>
+    <!-- Här börjar vi med vår canvas -->
+    <canvas width="800" height="600"></canvas>
+    <!-- Här börjar vår JS -->
+    <script>
+        // Elementen som vi använder
+        const eCanvas = document.querySelector("canvas");
+
+        // Plocka fram verktygen -> gör så att det går att rita
+        var ctx = eCanvas.getContext("2d");
+
+        // Vad är klockan?
+
+        function ritaKlocka() {
+            var now = new Date();
+            var seconds = now.getSeconds();
+            var minutes = now.getMinutes(); 
+            var hours = now.getHours();
+            
+
+            console.log(seconds);
+            console.log(minutes);
+            
+
+            ctx.beginPath();
+            ctx.strokeStyle = "#000";
+            ctx.lineWidth = 5; 
+            ctx.arc(400, 300, 100, -Math.PI / 2, 2 * Math.PI / 60 * seconds - Math.PI / 2);
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.strokeStyle = "#AA5";
+            ctx.lineWidth = 10;
+            ctx.arc(400, 300, 70, -Math.PI / 2, 2 * Math.PI / 60 * minutes - Math.PI / 2);
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.strokeStyle = "#AA5";
+            ctx.lineWidth = 10;
+            ctx.arc(400, 300, 70, -Math.PI / 2, 2 * Math.PI / 12 * (hours % 12) - Math.PI / 2);
+            ctx.stroke();
+        }
+
+        
+        
+
+
+        function loopen() {
+
+            ctx.clearRect(0, 0, 800, 600);
+
+            ritaKlocka();
+
+            requestAnimationFrame(loopen);
+
+        }
+        loopen();
+
+
+
+
+    </script>
+</body>
+</html>

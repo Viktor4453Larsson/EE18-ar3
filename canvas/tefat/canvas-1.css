@@ -1,0 +1,10 @@
+/* En CSS för vår canvas */
+canvas {
+    border: 1px solid #111;
+    background: whitesmoke;
+    margin: auto;
+    display: block;
+}
+body {
+    background: lightgoldenrodyellow;   
+}

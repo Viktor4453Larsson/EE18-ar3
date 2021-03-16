@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rita ett tefat</title>
+    <link rel="stylesheet" href="canvas-1.css">
+</head>
+<body>
+    <canvas width="800" height="600"></canvas>
+
+    <script>
+
+        const eCanvas = document.querySelector("canvas");
+
+        var ctx = eCanvas.getContext("2d");
+
+        var grassfield = new Image();
+    grassfield.src = "./bild/claudel-rheault-ZVbv1akA-l4-unsplash (1).jpg"
+
+        function ritaTefat(x, y) {
+
+            ctx.beginPath();
+            ctx.fillStyle = "#111";
+            ctx.arc(x, y, 50, 100, 2 * Math.PI);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(x - 80, y - 70, 20, 0, 2 * Math.PI);
+            ctx.fill()
+            ctx.beginPath();
+            ctx.arc(x + 180, y - 30, 50, 4, 2 * Math.PI);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.fillStyle = "#222";
+            ctx.arc(x - 40, y - 30, 30, 0, 2);
+            ctx.fill()
+            ctx.beginPath();
+            ctx.arc(x - 40, y - 30, 30, 0, 2);
+            ctx.fill()
+
+        }
+
+        var tefatX = 0, tefatY = 100;
+        function loopen() {
+            
+            ctx.clearRect(0, 0, 800, 600);
+
+            ctx.drawImage(grassfield, 0, 0);
+
+            ritaTefat(tefatX, tefatY);
+
+            tefatX += 1;
+            tefatY += 1;
+
+            requestAnimationFrame(loopen)
+        }
+        loopen();
+
+
+    </script>
+</body>
+</html>
