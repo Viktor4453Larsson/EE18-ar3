@@ -1,0 +1,21 @@
+/* En CSS för vår canvas */
+canvas {
+    border: 1px solid #111;
+    background: whitesmoke url("./bilder/a3b098d803dc75e2b64dab29b66b0d61.jpg");
+    margin: auto;
+    display: block;
+    cursor: none;
+}
+body {
+    background: rgb(41, 41, 38);   
+}
+.kontainer {
+    width: 1000;
+    margin: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+aside {
+    background-color: lightgreen;
+}
