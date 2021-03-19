@@ -92,10 +92,15 @@ window.addEventListener("keydown", function (e) {
         case "Numpad6":
             //Inte krocka med väggen
             if (duck.x < 740) {
-                //Inte krocka med hindrests vänsterkant
+                //Är ankan i samma höjd som hindret?
+                if (duck.y + 70 < hinder.y + 70 &&  duck.y > hinder.y + 100) {
+                    
+                    //Inte krocka med hindrests vänsterkant
                 if (duck.x < hinder.x - 70) {
                     duck.x += 10;
                 } 
+                }
+                
             }
             console.log(duck.x, duck.y, hinder.x, hinder.y);
             break;
