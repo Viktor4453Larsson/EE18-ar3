@@ -4,3 +4,10 @@ body {
 canvas {
     background: #2A2;
 }
+.kontainer {
+    width: 1000;
+    margin: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
