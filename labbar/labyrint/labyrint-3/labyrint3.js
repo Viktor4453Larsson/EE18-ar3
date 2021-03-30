@@ -16,9 +16,9 @@ var ctx = eCanvas.getContext("2d");
 var karta = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1],
-    [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1],
+    [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
     [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
-    [1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1],
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1],
     [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
@@ -46,6 +46,14 @@ var figur = {
 }
 figur.bild.src = "../bilder/nyckelpiga.png";
 
+var monster = {
+    rad : 8,
+    kol : 0,
+    rotation : 0,
+    bild: new Image()
+}
+monster.bild.src = "../bilder/Monsters-icon.png";
+
 var peng = {
     rad : Math.floor(Math.random() * 12),
     kol : Math.floor(Math.random() * 16),
@@ -53,26 +61,51 @@ var peng = {
 }
 peng.bild.src = "../bilder/Coin-icon.png";
 
+var peng1 = {
+    rad : Math.floor(Math.random() * 13),
+    kol : Math.floor(Math.random() * 17),
+    bild: new Image()
+}
+peng1.bild.src = "../bilder/Coin-icon.png";
 
 
-function ritaMynt() {
+
+function ritaMynt(peng) {
     ctx.drawImage(peng.bild, peng.kol * 50, peng.rad * 50, 50, 50);
 }
 
 // Se till att pengen inte hamnar på en vägg
-function spawnaMynt() {
+function spawna(objekt) {
     // En oändlig loop
     while (true) {
-    peng.rad = Math.floor(Math.random() * 12);
-    peng.kol = Math.floor(Math.random() * 16); 
+    objekt.rad = Math.floor(Math.random() * 12);
+    objekt.kol = Math.floor(Math.random() * 16); 
 
     //Avbryt när en 0:a har hittats
-    if (karta[peng.rad][peng.kol] == 0) {
+    if (karta[objekt.rad][objekt.kol] == 0) {
         break;
     }
    }
 }
-spawnaMynt();
+spawna();
+
+// Se till att pengen inte hamnar på en vägg
+function spawna(peng) {
+    // En oändlig loop
+    while (true) {
+    monster.rad = Math.floor(Math.random() * 12);
+    monster.kol = Math.floor(Math.random() * 16); 
+
+    //Avbryt när en 0:a har hittats
+    if (karta[monster.rad][monster.kol] == 0) {
+        break;
+    }
+   }
+}
+spawna();
+
+// Se till att pengen inte hamnar på en vägg
+
 
 // De som händer när vi hamnar på samma ruta som myntet
 function plockaMynt() {
@@ -83,8 +116,36 @@ function plockaMynt() {
         eP.textContent = figur.poang;
         //Placera myntet någon annan stans
         spawnaMynt();
+
+        
+        }
         
     }
+
+
+    function plockaMynt2() {
+        //När nyckelpiggan och myntet hamnar på samma ruta
+        if (figur.rad == peng1.rad && figur.kol == peng1.kol) {
+            //Öka antalet poäng
+        figur.poang++;
+        eP.textContent = figur.poang;
+        //Placera myntet någon annan stans
+        spawnaMynt2();
+    }
+}
+
+//Det som händer när vi och monstret är på samma ruta 
+function monsterAttak() {
+    //När nyckelpiggan och myntet hamnar på samma ruta
+    if (figur.rad == monster.rad && figur.kol == monster.kol) {
+        //Öka antalet poäng
+  
+    spawnafigur();
+}
+}
+
+function spawnafigur() {
+    ritaFigur();
 }
 
 
@@ -94,6 +155,15 @@ function ritaFigur() {
     ctx.translate(figur.kol * 50 + 25, figur.rad * 50 + 25);
     ctx.rotate(figur.rotation / 180 * Math.PI);
     ctx.drawImage(figur.bild, -25, -25, 50, 50);
+    ctx.restore();
+}
+
+//Rita ut monstret
+function ritaMonster() {
+    ctx.save();
+    ctx.translate(monster.kol * 50 + 25, monster.rad * 50 + 25);
+    ctx.rotate(monster.rotation / 180 * Math.PI);
+    ctx.drawImage(monster.bild, -25, -25, 50, 50);
     ctx.restore();
 }
 
@@ -127,10 +197,15 @@ function loopen() {
 
     ritaFigur();
 
-    ritaMynt();
+    ritaMonster();  
+
+    ritaMynt(peng);
+
+    ritaMynt(peng1);
 
     //Hamna på samma ruta som myntet
-    plockaMynt();
+    plockaMynt(peng);
+    plockaMynt(peng1);
 
     requestAnimationFrame(loopen)
 }
