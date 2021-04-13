@@ -11,7 +11,7 @@ canvas.height = 600;
 var ctx = canvas.getContext("2d");
 
 var tank = new Image();
-tank.src = "./bilder/tanksheet.png";
+tank.src = "./bilder/tank-sprite.png";
 
 var tankRutor = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]; 
 var i = 0;
