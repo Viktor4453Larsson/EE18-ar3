@@ -16,4 +16,23 @@ function visaPosition(position) {
     var longitude = position.coords.longitude;
 
     eP.textContent = "Din position är: latitude = " + latitude + ", longitude = " + longitude;
+
+    /* Omvandla lat & lon till ett POST-paket, simulerar ett slags formulär */
+    var postData = new FormData();
+    postData.append("lat", latitude);
+    postData.append("lon", longitude);
+
+    /* Skicka data lat och lon till backend.php */
+    fetch("./backend.php", {
+        method: "POST",
+        body: postData
+    })
+    .then(response => response.json()) /* Vi väljer att ta emot ett JSON packet */
+    .then(stops => {
+        /* Loopa igenom en array som heter stops */
+        stops.forEach(stop => {
+            console.log(stop.name, stop.lat, stop.lon);
+            eP.innerHTML += stop.name + ": " + stop.lat + ", " +  stop.lon + "<br>";
+        });
+    }) /* Hållplatserna */
 }
