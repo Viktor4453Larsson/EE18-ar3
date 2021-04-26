@@ -1,0 +1,10 @@
+body {
+    background: #DDD;
+}
+
+.box {
+    background: #fff;
+    width: 1000px;
+    margin: auto;
+    padding: 2em;
+}
