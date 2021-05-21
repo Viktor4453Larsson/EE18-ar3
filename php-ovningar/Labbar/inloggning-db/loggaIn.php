@@ -54,7 +54,7 @@ session_start();
                 $sql = "SELECT *  FROM user WHERE anamn LIKE '$anvandernamn'";
                 $result = $conn->query($sql);
                 if ($result->num_rows == 0) {
-                    echo " <p class=\"alert alert-danger\" role='alert'> Användarnamnet är redan taget och upptaget</p>";
+                    echo " <p class=\"alert alert-danger\" role='alert'> Användarnamnet finns ej</p>";
                 } else {
                     // Få ut hash:et isåfall
                     $rad = $result->fetch_assoc();

@@ -15,7 +15,7 @@ $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die ("Det gick inte att ansluta: " . $conn->error);
 } else {
-   // echo "<p>Du kunde ansluta till databasen</p>";
+   // echo "<p>Du kunde ansluta till databasen</p>"
 }
 
 ?>

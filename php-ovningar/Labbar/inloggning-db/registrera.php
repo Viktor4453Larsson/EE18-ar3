@@ -67,7 +67,7 @@ session_start();
                     if ($lösen1 == $lösen2) {
                         //Räkna ut hash 
                         $hash = password_hash($lösen1, PASSWORD_DEFAULT);
-                        $sql = "INSERT INTO user (fnamn, enamn, anamn, hash, antal) VALUES ( '$fnamn', '$enamn', '$anamn', '$hash', '$antal')";
+                        $sql = "INSERT INTO user (fnamn, enamn, anamn, hash) VALUES ( '$fnamn', '$enamn', '$anamn', '$hash')";
                         $conn->query($sql);
                         echo "<p class=\"alert alert-success\" role='alert'>Allt fungerar, tack för att du registrerade dig</p>";
                     } else {
