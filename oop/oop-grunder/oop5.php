@@ -10,7 +10,7 @@ include "./includes/person.php";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hej här tränar jag på oop</h1>
+    <h1>Olika metoder i OOP</h1>
 </body>
 </html>
 <?php
